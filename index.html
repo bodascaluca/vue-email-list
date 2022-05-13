@@ -20,8 +20,9 @@
 <body>
 
     <div id="root">
-
-        <p>{{ userEmail}}</p>
+        <ul v-for="element in userEmail ">
+            <li>{{ element}}</li>
+        </ul>
 
         <button @click="generateRandomEmails">Clicca</button>
     </div>

@@ -2,15 +2,20 @@
 const app = new Vue({
     el:"#root",
     data:{
-        userEmail:null,
+        userEmail:[],
+    },
+    mounted(){
+        this.generateRandomEmails()
     },
     methods:{
         generateRandomEmails(){
             console.log('Salve');
-            axions.get('https://flynn.boolean.careers/exercises/api/random/mail')
-            .then((resp)=>{ 
-                this.userEmail = resp.data.response;
-            })
+            for(let i = 0; i < 10; i++){
+                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                .then((resp)=>{ 
+                    this.userEmail.push(resp.data.response);
+                })
+            }
 
         },  
     }
